@@ -1,0 +1,131 @@
+---
+title: 'Seeding a'
+date: '2023-06-21'
+tags: ['prisma', 'next.js', 'postgres', 'docker', 'typescript', 'database']
+---
+
+In this post I am going to walk you through the process of setting up a development environment and seeding a database
+
+
+First start off by initializing a new Next.js project
+```bash
+    npx create-next-app@latest
+```
+Here you can see the settings I chose
+<CustomImage src="https://raw.githubusercontent.com/cabennetts/congenial-octo-happiness/main/images/seeding-next-setup.png" alt="Settings I chose for my next.js app" />
+
+Now Create a Postgres Database with Docker
+
+```bash
+    docker run --rm --publish 5432:5432 -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_DB=name postgres
+```
+
+Install the packages for prisma
+```bash
+    npm i -D prisma
+    npm i @prisma/client
+```
+
+Initialize Prisma in the app
+```bash
+    npx prisma init
+```
+
+Now modify the .env file
+```
+DATABASE_URL="postgresql://postgres@localhost:5432/name?schema=public"
+```
+
+We need to setup a basic prisma schema by adding a user [File: prisma.schema]
+```
+model user {
+    id Int @id @default(autoincrement())
+    email String @unique
+    password String
+    name String?
+}
+```
+
+Create your first prisma migration
+```bash
+    npx prisma migrate dev --name init
+```
+
+We now want to edit the package.json file so that when building, you generate a new prisma instance
+```json
+...
+"scripts": {
+    ...
+    "build": "prisma generate && next build",
+},
+...
+```
+
+We need to install a dev dependency that allows us to run scripts in typescript
+```bash
+npm i -D ts-node
+```
+
+Back to the package.json to add a script
+```json
+...
+"prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts",
+},
+"dependencies": {
+    ...
+},
+...
+```
+
+In the prisma folder, create a seed.ts file
+prisma/seed.ts
+
+```ts
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
+
+async function main() {
+	const user = await prisma.user.upsert({
+		where: { email: 'test@test.com' },
+		update: {},
+		create: {
+			email: 'test@test.com',
+			name: 'Test User',
+			password: `password`
+		},
+	})
+	console.log({ user })
+}
+
+main()
+	.then(() => prisma.$disconnect())
+	.catch(async (e) => {
+		console.error(e)
+		await prisma.$disconnect()
+		process.exit(1)
+	})
+```
+
+Now we can seed the database by running
+```bash
+npx prisma db seed
+```
+
+Set up the global prisma client
+lib/prisma.ts 
+```ts
+import { PrismaClient } from '@prisma/client'
+
+const globalForPrisma = global as unknown as { prisma: PrismaClient }
+
+export const prisma = globalForPrisma.prisma || new PrismaClient({ log: ['query'] })
+
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma
+```
+
+Now you can either use your own ORM that you may use or you can run the following command to see your user you created during the seed.
+```bash
+npx prisma studio
+```
