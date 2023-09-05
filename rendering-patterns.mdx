@@ -1,0 +1,108 @@
+---
+title: '10 Rendering Patterns Explained'
+date: '2023-09-5'
+tags: ['web dev', 'explained']
+---
+
+# What is rendering?
+It's the process of turning data and code into HTML to be seen by the end user
+
+Can be done:
+- in server or browser
+- all at once or partially
+
+
+# 1. Static Website
+- create all webpages in advance and load them as static files into a cloud and point a domain name to them for displaying
+- no dynamic data
+- only suitable for basic websites that don’t require a lot of interactivity
+
+Frameworks:
+- Hugo
+- 11ty
+- jekyll
+
+# 2. Multi Page Applications
+- html and data is put together dynamically on a server whenever a request comes in from a browser.
+- data is rendered 100% on server
+- appearance of webiste can change when underlying data can change
+
+Frameworks:
+- ruby on rails
+- django
+- laravel
+
+# 3. Sinlge Page Applications (SPA)
+- You start with one html page as a shell and execute javascript to render UI and fetch any required data with additional HTTP requests
+- Single-page can have multiple routes “Client-side routing”
+    - routes don’t point to server, just updated by javascript
+- fast route transitions
+- large js bundle, can make initial page load slow
+- only renders a shell, bad for SEO that looks for all pages
+
+Frameworks:
+- Angular.js
+- React.js
+
+# 4. Server Side Rendering with hydration (SSR)
+- render initial page on server then hydrate to clientside js afterwards
+- initial request goes to a server and renders everything dynamically, then after inital page load js takes over to give app like SPA experience
+- MPA + SPA = SSR
+- server required (cost money)
+
+Frameworks:
+- Next.js
+- Nuxt.js
+- Sveltekit
+
+# 5. Static Site Generation with hydration (SSG)
+- render all html in advance, then upload it to a static host (e.g., storage bucket) but like SSR will hydrate to JS after initial page load
+- simple hosting
+- app-like experience
+- need to redeploy site whenever data changes
+
+Frameworks:
+- Next.js
+- Nuxt.js
+- Sveltekit
+
+# 6. Incremental Static Regeneration
+- deploy a static site but rebuild individual pages on the fly on server when the cache is invalidated
+- cache can be invalidated with certain rules
+- static site
+- dynamic server data
+- complex to self-host
+
+Frameworks:
+- Vercel
+
+# 7. Partial Hydration
+- on large websites, JS will have a lot to do for things that aren’t visible on initial page
+- using PH, you may render components at top of page first, and wait until user scrolls down to render more components
+
+Frameworks:
+- vite.js
+
+# 8. Islands (Architecture)
+- normally when loading, JS takes up entire page but isn’t very efficient because many components are static and not interactive
+- With islands you start with static html then only use JS to hydrate interactive components giving you islands of interactivity
+
+Frameworks:
+- astro
+
+# 9. Streaming SSR
+- allows you to render serverside content concurrently in multiple chunks instead of all at once
+- the UI becomes interactive faster and feels more performant to end user
+
+
+Frameworks:
+- Next.js 13
+
+# 10. Resumability
+- takes a website and all of its data, even js event listeners, are serilized into html then the js code is broken down into tons of tiny chunks
+- initial page load is always html
+- no hydration is needed
+- any js required for interactivity is lazy loaded in background
+
+Frameworks:
+- qwik
