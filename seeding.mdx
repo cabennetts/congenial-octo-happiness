@@ -42,7 +42,7 @@ DATABASE_URL="postgresql://postgres@localhost:5432/name?schema=public"
 
 <h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>We need to setup a basic prisma schema by adding a user [File: prisma.schema]</h3>
 
-```ts
+```
 model user {
     id Int @id @default(autoincrement())
     email String @unique
