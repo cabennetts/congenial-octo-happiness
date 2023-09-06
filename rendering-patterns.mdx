@@ -7,39 +7,39 @@ tags: ['web dev', 'explained']
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>It's the process of turning data and code into HTML to be seen by the end user</p>
 
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>Can be done:</p>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>in server or browser</li>
   <li>all at once or partially</li>
 </ul>
 
 <h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>1. Static Website</h3>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>create all webpages in advance and load them as static files into a cloud and point a domain name to them for displaying</li>
   <li style={{color: '#dc143c'}}>no dynamic data</li>
   <li style={{color: '#dc143c'}}>only suitable for basic websites that don’t require a lot of interactivity</li>
 </ul>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0', fontWeight: '600'}}>Frameworks:</p>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>Hugo</li>
   <li>11ty</li>
   <li>jekyll</li>
 </ul>
 
 <h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>2. Multi Page Applications</h3>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>html and data is put together dynamically on a server whenever a request comes in from a browser.</li>
   <li>data is rendered 100% on server</li>
   <li>appearance of webiste can change when underlying data can change</li>
 </ul>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0', fontWeight: '600'}}>Frameworks:</p>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>ruby on rails</li>
   <li>django</li>
   <li>laravel</li>
 </ul>
 
 <h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>3. Sinlge Page Applications (SPA)</h3>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>You start with one html page as a shell and execute javascript to render UI and fetch any required data with additional HTTP requests</li>
   <li>Single-page can have multiple routes “Client-side routing” (routes don’t point to server, just updated by javascript)</li>
   <li style={{color: '#28872b'}}>fast route transitions</li>
@@ -47,41 +47,41 @@ tags: ['web dev', 'explained']
   <li style={{color: '#dc143c'}}>only renders a shell, bad for SEO that looks for all pages</li>
 </ul>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0', fontWeight: '600'}}>Frameworks:</p>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>Angular.js</li>
   <li>React.js</li>
 </ul>
 
 <h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>4. Server Side Rendering with hydration (SSR)</h3>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>render initial page on server then hydrate to clientside js afterwards</li>
   <li>initial request goes to a server and renders everything dynamically, then after inital page load js takes over to give app like SPA experience</li>
   <li>MPA + SPA = SSR</li>
   <li style={{color: '#dc143c'}}>server required (cost money)</li>
 </ul>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0', fontWeight: '600'}}>Frameworks:</p>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>Next.js</li>
   <li>Nuxt.js</li>
   <li>Sveltekit</li>
 </ul>
 
 <h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>5. Static Site Generation with hydration (SSG)</h3>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>render all html in advance, then upload it to a static host (e.g., storage bucket) but like SSR will hydrate to JS after initial page load</li>
   <li style={{color: '#28872b'}}>simple hosting</li>
   <li style={{color: '#28872b'}}>app-like experience</li>
   <li style={{color: '#dc143c'}}>need to redeploy site whenever data changes</li>
 </ul>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0', fontWeight: '600'}}>Frameworks:</p>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>Next.js</li>
   <li>Nuxt.js</li>
   <li>Sveltekit</li>
 </ul>
 
 <h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>6. Incremental Static Regeneration</h3>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>deploy a static site but rebuild individual pages on the fly on server when the cache is invalidated</li>
   <li>cache can be invalidated with certain rules</li>
   <li style={{color: '#28872b'}}>static site</li>
@@ -89,48 +89,48 @@ tags: ['web dev', 'explained']
   <li style={{color: '#dc143c'}}>complex to self-host</li>
 </ul>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0', fontWeight: '600'}}>Frameworks:</p>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>Vercel</li>
 </ul>
 
 <h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>7. Partial Hydration</h3>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>on large websites, JS will have a lot to do for things that aren’t visible on initial page</li>
   <li>using PH, you may render components at top of page first, and wait until user scrolls down to render more components</li>
 </ul>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0', fontWeight: '600'}}>Frameworks:</p>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>vite.js</li>
 </ul>
 
 <h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>8. Islands (Architecture)</h3>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>normally when loading, JS takes up entire page but isn’t very efficient because many components are static and not interactive</li>
   <li>With islands you start with static html then only use JS to hydrate interactive components giving you islands of interactivity</li>
 </ul>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0', fontWeight: '600'}}>Frameworks:</p>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>astro</li>
 </ul>
 
 <h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>9. Streaming SSR</h3>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>allows you to render serverside content concurrently in multiple chunks instead of all at once</li>
   <li>the UI becomes interactive faster and feels more performant to end user</li>
 </ul>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0', fontWeight: '600'}}>Frameworks:</p>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>Next.js 13</li>
 </ul>
 
 <h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>10. Resumability</h3>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>takes a website and all of its data, even js event listeners, are serilized into html then the js code is broken down into tons of tiny chunks</li>
   <li>initial page load is always html</li>
   <li style={{color: '#28872b'}}>no hydration is needed</li>
   <li>any js required for interactivity is lazy loaded in background</li>
 </ul>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0', fontWeight: '600'}}>Frameworks:</p>
-<ul style={{listStyle: 'disc', padding: '1rem'}}>
+<ul style={{listStyle: 'disc', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>qwik</li>
 </ul>
