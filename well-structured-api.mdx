@@ -4,13 +4,13 @@ date: '2023-08-31'
 tags: ['API']
 ---
 
-<h2 style={{fontSize: '1.875rem', lineHeight: '2.25rem', paddingBottom: '8px', color: '#f0f0f0'}}>💡 API or Application Programming Interface</h2>
+<h2 style={{fontWeight: '600', fontSize: '1.875rem', lineHeight: '2.25rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>💡 API or Application Programming Interface</h2>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>Is a collection of protocols that allow software components to communicate and share data.</p>
 
-<h2 style={{fontSize: '1.875rem', lineHeight: '2.25rem', paddingBottom: '8px', color: '#f0f0f0'}}>💡 RESTful API or REST API</h2>
+<h2 style={{fontWeight: '600', fontSize: '1.875rem', lineHeight: '2.25rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>💡 RESTful API or REST API</h2>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>The most popular API architecture for transferring data over the internet. This architecture, resources are accessible via endpoints using standard HTTP methods like GET, POST, PUT, DELETE</p>
 
-<h2 style={{fontSize: '1.875rem', lineHeight: '2.25rem', paddingBottom: '8px', color: '#f0f0f0'}}>In this blog post, I am going to delve into a well structures RESTful API.</h2>
+<h2 style={{fontWeight: '600', fontSize: '1.875rem', lineHeight: '2.25rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>In this blog post, I am going to delve into a well structures RESTful API.</h2>
 
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>Let's say we want to create an API for a todo list app we are developing</p>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>Some common features that we would like:</p>
@@ -21,15 +21,15 @@ tags: ['API']
   <li>create a new to-do</li>
 </ul>
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>I am going to first provide an example of a **bad** API.</h3>
+<h3 style={{fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>I am going to first provide an example of a **bad** API.</h3>
 <span style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}><strong style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', padding: '4px'}}>GET /data </strong>: retrieves data </span>
 <br/>
 <span style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}><strong style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', padding: '4px'}}>POST /add </strong>: adds a new item</span>
 
-<h4 style={{fontSize: '1.25rem', lineHeight: '1.75rem', paddingBottom: '8px', color: '#f0f0f0'}}>The qualities that make it bad!</h4>
+<h4 style={{fontWeight: '300', fontSize: '1.25rem', lineHeight: '1.75rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>The qualities that make it bad!</h4>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>The naming is unclear and will easily confuse developers. What data are we retrieving? What kind of item are we adding? It also has poor structure and doesn't adhere to the full RESTful artchitecture (missing PUT and DELETE)</p>
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>How to make it better?</h3>
+<h3 style={{fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>How to make it better?</h3>
 <span style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}><strong style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', padding: '4x'}}>GET /todo </strong>: retrieves our list of to-do's and only those</span>
 <br/>
 <span style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}><strong style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', padding: '4px'}}>POST /todo </strong>: adds a new to-do</span>
@@ -40,7 +40,7 @@ tags: ['API']
 
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>This API is clear to understand and will not produce any confustion to developers. We know exactly what each method is doing and it's well defined. It also adheres to the RESTful architecture!</p>
 
-<h1 style={{fontSize: '2.25rem', lineHeight: '2.5rem', paddingBottom: '8px', color: '#f0f0f0'}}>Proper use of HTTP Status Codes</h1>
+<h1 style={{fontWeight: '700', fontSize: '2.25rem', lineHeight: '2.5rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>Proper use of HTTP Status Codes</h1>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>It’s important to provide the proper status code for the request and not just a *200: OK* status code whenever something works. The messages should also be meaningful in the response body</p>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>Lazy Route: Return *200: OK* for all of the methods.</p>
 <ul style={{listStyle: 'disc', padding: '1rem', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
@@ -58,20 +58,20 @@ tags: ['API']
 
 <p style={{backgroundColor: '#F4EA56', borderRadius: '0.5rem', fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#000000'}}>📝 Note: There are plenty more status codes that should be used for all different reasons, I am just providing these as an example of what some could be used for. Depending on the application, you may less but you should always use more than you think</p>
 
-<h1 style={{fontSize: '2.25rem', lineHeight: '2.5rem', paddingBottom: '8px', color: '#f0f0f0'}}>Consistency</h1>
+<h1 style={{fontWeight: '700', fontSize: '2.25rem', lineHeight: '2.5rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>Consistency</h1>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>Your API should follow consistent naming conventions, HTTP methods, and error responses throughout all endpoints</p>
 
-<h1 style={{fontSize: '2.25rem', lineHeight: '2.5rem', paddingBottom: '8px', color: '#f0f0f0'}}>Authentication and Authorization</h1>
+<h1 style={{fontWeight: '700', fontSize: '2.25rem', lineHeight: '2.5rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>Authentication and Authorization</h1>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>When needed, a well structured API implements secure authentication and authorization mechanisms to protect sensitive data and actions that can be harmful. </p>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>A common mechanism:</p>
 <ul style={{listStyle: 'disc', padding: '1rem', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
   <li>API Keys - where in order to use an API, you can generate one that is passed into the request headers and the API then verifies that its valid. </li>
 </ul>
 
-<h1 style={{fontSize: '2.25rem', lineHeight: '2.5rem', paddingBottom: '8px', color: '#f0f0f0'}}>Pagination</h1>
+<h1 style={{fontWeight: '700', fontSize: '2.25rem', lineHeight: '2.5rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>Pagination</h1>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>A well structured API should always support pagination for large result sets, allowing clients to fetch data in manageable chunks. </p>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>An example of pagination is any social media. When opening up twitter, a request is sent to retrieve the tweets. It would be highly inefficient to send the payload back to your phone that contains ALL the tweets from the people you’re following. This is where Pagination comes into play. Instead of getting all tweets, you may only get the most recent 20 tweets, and if you scroll through let’s say 18 of them, then it will know to fetch the next 20.</p>
 
-<h1 style={{fontSize: '2.25rem', lineHeight: '2.5rem', paddingBottom: '8px', color: '#f0f0f0'}}>Rate Limiting</h1>
+<h1 style={{fontWeight: '700', fontSize: '2.25rem', lineHeight: '2.5rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>Rate Limiting</h1>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>Depending on the use of the API, if its public or private, it’s important to add a rate limit. If you have a public API, this prevents someone from abusing it. One person abusing the API can drastically increase the costs and even affect the performance of other users depending on the size and computational power you have for your API. If you have a private API, its still important to set limits in the case of a bug is found that can be harmful, or to ensure costs are kept within budget.</p>
 
