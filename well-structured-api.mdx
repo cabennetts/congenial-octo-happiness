@@ -22,21 +22,21 @@ tags: ['API']
 </ul>
 
 <h3 style={{fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>I am going to first provide an example of a **bad** API.</h3>
-<span style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}><strong style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', padding: '4px', margin: '4px'}}>GET /data </strong>: retrieves data </span>
+<span style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', margin: '4px', color: '#f0f0f0'}}><strong style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', margin: '8px', padding: '2px'}}>GET /data </strong>: retrieves data </span>
 <br/>
-<span style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}><strong style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', padding: '4px', margin: '4px'}}>POST /add </strong>: adds a new item</span>
+<span style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', margin: '4px', color: '#f0f0f0'}}><strong style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', margin: '8px', padding: '2px'}}>POST /add </strong>: adds a new item</span>
 
 <h4 style={{fontWeight: '300', fontSize: '1.25rem', lineHeight: '1.75rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>The qualities that make it bad!</h4>
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>The naming is unclear and will easily confuse developers. What data are we retrieving? What kind of item are we adding? It also has poor structure and doesn't adhere to the full RESTful artchitecture (missing PUT and DELETE)</p>
 
 <h3 style={{fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>How to make it better?</h3>
-<span style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}><strong style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', margin: '8px', padding: '2px'}}>GET /todo </strong>: retrieves our list of to-do's and only those</span>
+<span style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', margin: '4px', color: '#f0f0f0'}}><strong style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', margin: '8px', padding: '2px'}}>GET /todo </strong>: retrieves our list of to-do's and only those</span>
 <br/>
-<span style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}><strong style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', margin: '8px', padding: '2px'}}>POST /todo </strong>: adds a new to-do</span>
+<span style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', margin: '4px', color: '#f0f0f0'}}><strong style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', margin: '8px', padding: '2px'}}>POST /todo </strong>: adds a new to-do</span>
 <br/>
-<span style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}><strong style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', margin: '8px', padding: '2px'}}>PUT /todo/:id </strong>: updates a to-do</span>
+<span style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', margin: '4px', color: '#f0f0f0'}}><strong style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', margin: '8px', padding: '2px'}}>PUT /todo/:id </strong>: updates a to-do</span>
 <br/>
-<span style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}><strong style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', margin: '8px', padding: '2px'}}>DELETE /todo/:id </strong>: deletes a to-do</span>
+<span style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', margin: '4px', color: '#f0f0f0'}}><strong style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', margin: '8px', padding: '2px'}}>DELETE /todo/:id </strong>: deletes a to-do</span>
 
 <p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>This API is clear to understand and will not produce any confustion to developers. We know exactly what each method is doing and it's well defined. It also adheres to the RESTful architecture!</p>
 
