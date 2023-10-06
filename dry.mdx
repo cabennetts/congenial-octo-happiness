@@ -1,0 +1,113 @@
+---
+title: 'DRY - Don't Repeat Yourself!'
+date: '2023-10-6'
+tags: ['web dev', 'explained', 'dry', 'development']
+---
+<h2 style={{fontWeight: '600', fontSize: '1.875rem', lineHeight: '2.25rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>DRY</h2>
+<p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>The idea that each piece of logic should exist in one and only one place in a system. Adhering to the DRY principle, we can ensure maintainability and scalability.</p>
+
+<h2 style={{fontWeight: '600', fontSize: '1.875rem', lineHeight: '2.25rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>Advantages</h2>
+<ul style={{listStyle: 'disc', padding: '1rem', marginLeft: '1rem', marginTop: '0', marginBottom: '0'}}>
+  <li>Readability: When each piece of logic exists in one place, it’s easier for other developers (and yourself) to understand the flow. </li>
+  <li>Easier Maintenance: Any necessary changes or fixes need to be applied to the single location rather than multiple which in-turn reduces the chances of creating bugs or missing another part of the code to be fixed</li>
+  <li>Easier Testing: When code isn’t duplicated, testing is straightforward since you only have to test one module or piece of code </li>
+  <li>Development Efficiency</li>
+  <li>Optimized Resource Usage: Less repeated code will most likely lead to faster execution and can have less memory consumption</li>
+  <li>Less Error-Prone: Centralizing code has the benefit of less area for bugs. Repeating logic multiple places, changes to one might not be replicated in others, producing inconsistencies and likely errors</li>
+</ul>
+
+<h2 style={{fontWeight: '600', fontSize: '1.875rem', lineHeight: '2.25rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>Some Simple Examples to get the Idea Across</h2>
+<h3 style={{fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>UI Components:</h3>
+<p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>Non-DRY: For every page in a website where you need a specific button style, you write the CSS for that button.</p>
+```ts
+const Button1 = styled.button`
+  background-color: blue;
+  color: white;
+  // ... other styles
+`;
+
+const Button2 = styled.button`
+  background-color: blue;
+  color: white;
+  // ... other styles
+`;
+```
+<p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>DRY: You define the button style once in a central CSS file and reuse that class on every page where the button appears.</p>
+```ts
+const BaseButton = styled.button`
+  background-color: blue;
+  color: white;
+  // ... other styles
+`;
+
+const Button1 = styled(BaseButton)``;
+const Button2 = styled(BaseButton)``;
+```
+
+<h3 style={{fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>Database Connection:</h3>
+<p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>Non-DRY: Every time you need to connect to a database, you write the connection logic.</p>
+```ts
+function addUser() {
+  const connection = /* database connection logic */;
+  // logic to add user
+}
+
+function deleteUser() {
+  const connection = /* database connection logic */;
+  // logic to delete user
+}
+```
+<p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>DRY: You create a single function or class that handles database connections. Whenever you need to connect, you call this function or instantiate this class.</p>
+```ts
+function getDBConnection() {
+  return /* database connection logic */;
+}
+
+function addUser() {
+  const connection = getDBConnection();
+  // logic to add user
+}
+
+function deleteUser() {
+  const connection = getDBConnection();
+  // logic to delete user
+}
+```
+
+<h3 style={{fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem', paddingTop: '8px', paddingBottom: '8px', color: '#f0f0f0'}}>Data Validation:</h3>
+<p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>Non-DRY: Before inserting or updating data in various parts of an application, you write validation logic for that data each time.</p>
+```ts
+function saveUserData(user: any) {
+  if (!user.name || !user.email) {
+    throw new Error('Invalid user data');
+  }
+  // save user logic
+}
+
+function updateUserDetails(details: any) {
+  if (!details.name || !details.email) {
+    throw new Error('Invalid user data');
+  }
+  // update user logic
+}
+```
+<p style={{fontSize: '1rem', lineHeight: '1.5rem', padding: '4px', color: '#f0f0f0'}}>DRY: You create a single validation module or function for that data type and call it whenever validation is needed.</p>
+```ts
+function validateUserData(data: any) {
+  if (!data.name || !data.email) {
+    throw new Error('Invalid user data');
+  }
+}
+
+function saveUserData(user: any) {
+  validateUserData(user);
+  // save user logic
+}
+
+function updateUserDetails(details: any) {
+  validateUserData(details);
+  // update user logic
+}
+```
+
+<p style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#f0f0f0', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', padding: '8px'}}>Adhering to DRY I believe is essential for all developers. Looking back on the first code I ever wrote, I struggled with this at times. I also recall getting stuck on bugs and would always lose track of what things did and why they did it. By repeating certain parts of code I would easily get overwhelmed and frustrated. After learning about DRY and putting it into practice, I have felt more confident in the code because it is easier to read, test, and understand the system as a whole. I hope you find this information useful! Thanks for reading and always strive for the best!</p>
