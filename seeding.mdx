@@ -4,44 +4,44 @@ date: '2023-06-21'
 tags: ['prisma', 'next.js', 'postgres', 'docker', 'typescript', 'database']
 ---
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>In this post I am going to walk you through the process of setting up a development environment and seeding a database</h3>
+### In this post I am going to walk you through the process of setting up a development environment and seeding a database
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>First start off by initializing a new Next.js project</h3>
+#### First start off by initializing a new Next.js project
 
 ```bash
 npx create-next-app@latest
 ```
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>Here you can see the settings I chose</h3>
+#### Here you can see the settings I chose
 
 <CustomImage src="https://raw.githubusercontent.com/cabennetts/congenial-octo-happiness/main/images/seeding-next-setup.png" alt="Settings I chose for my next.js app" />
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>Now Create a Postgres Database with Docker</h3>
+#### Now Create a Postgres Database with Docker
 
 ```bash
 docker run --rm --publish 5432:5432 -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_DB=name postgres
 ```
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>Install the packages for prisma</h3>
+#### Install the packages for prisma
 
 ```bash
 npm i -D prisma
 npm i @prisma/client
 ```
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>Initialize Prisma in the app</h3>
+#### Initialize Prisma in the app
 
 ```bash
 npx prisma init
 ```
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>Now modify the .env file</h3>
+#### Now modify the .env file
 
 ```bash
 DATABASE_URL="postgresql://postgres@localhost:5432/name?schema=public"
 ```
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>We need to setup a basic prisma schema by adding a user [File: prisma.schema]</h3>
+#### We need to setup a basic prisma schema by adding a user [File: prisma.schema]
 
 ```
 model user {
@@ -52,13 +52,13 @@ model user {
 }
 ```
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>Create your first prisma migration</h3>
+#### Create your first prisma migration
 
 ```bash
 npx prisma migrate dev --name init
 ```
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>We now want to edit the package.json file so that when building, you generate a new prisma instance</h3>
+#### We now want to edit the package.json file so that when building, you generate a new prisma instance
 
 ```json
 ...
@@ -69,13 +69,13 @@ npx prisma migrate dev --name init
 ...
 ```
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>We need to install a dev dependency that allows us to run scripts in typescript</h3>
+#### We need to install a dev dependency that allows us to run scripts in typescript
 
 ```bash
 npm i -D ts-node
 ```
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>Back to the package.json to add a script</h3>
+#### Back to the package.json to add a script
 
 ```json
 ...
@@ -88,8 +88,8 @@ npm i -D ts-node
 ...
 ```
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}> In the prisma folder, create a seed.ts file</h3>
-<p style={{backgroundColor: '#282826', borderRadius: '0.5rem', color: '#d85f5b', fontSize: '1rem', width: 'fit-content' , lineHeight: '1.5rem', padding: '8px'}}>prisma/seed.ts</p>
+#### In the prisma folder, create a seed.ts file
+prisma/seed.ts
 
 ```ts
 import { PrismaClient } from '@prisma/client'
@@ -118,14 +118,14 @@ main()
 	})
 ```
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>Now we can seed the database by running </h3>
+#### Now we can seed the database by running 
 
 ```bash
 npx prisma db seed
 ```
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>Set up the global prisma client</h3>
-<p style={{fontSize: '1rem', lineHeight: '1.5rem', paddingBottom: '8px', color: '#f0f0f0'}}>lib/prisma.ts </p>
+#### Set up the global prisma client
+lib/prisma.ts 
 
 ```ts
 import { PrismaClient } from '@prisma/client'
@@ -137,9 +137,7 @@ export const prisma = globalForPrisma.prisma || new PrismaClient({ log: ['query'
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma
 ```
 
-<h3 style={{fontSize: '1.5rem', lineHeight: '2rem', paddingBottom: '8px', color: '#f0f0f0'}}>
-Now you can either use your own ORM that you may use or you can run the following command to see your user you created during the seed.
-</h3>
+#### Now you can either use your own ORM that you may use or you can run the following command to see your user you created during the seed.
 
 ```bash
 npx prisma studio
